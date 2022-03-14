@@ -36,7 +36,6 @@ const myIterable = {
   to: 4,
 
   [Symbol.iterator]() {
-
     if (isNaN(this.from || this.to)) {
       throw new Error('Error')
     }
@@ -53,7 +52,3 @@ const myIterable = {
     return {done: true};
   }
 };
-
-for (let elem of myIterable) {
-  console.log(elem)
-}
