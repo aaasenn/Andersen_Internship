@@ -8,34 +8,26 @@ function deepObjectCopy(obj) {
 
     return cloneObj;
   }
+
   return obj; 
 }
 
 
 function validation (arr, num, num2) {
-
-  if (arr.every(elem => !isNaN(elem)) && !isNaN(num, num2)) {
-    return true;
-  }
-  
-  return false;
+  return (arr.every(elem => !isNaN(elem) && !isNaN(num, num2)))
 }
 
 function selectFromInterval (arr, num, num2) {
-  if (validation(arr, num, num2)) {
-    const max = Math.max(num, num2);
-    const min = Math.min(num, num2);
-    return arr.filter((elem) => {
-
-      if (elem <= max && elem >= min) {
-        return true;
-      }
-
-      return false;
-    })
+  if (!validation(arr, num, num2)) {
+    throw new Error('Invalid values')
   }
 
-  throw new Error('Invalid values');
+  const max = Math.max(num, num2);
+  const min = Math.min(num, num2);
+
+  return arr.filter((elem) => {
+    return min <= elem && max >= elem
+  })
 }
 
 
