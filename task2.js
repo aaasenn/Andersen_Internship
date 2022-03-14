@@ -48,8 +48,12 @@ const myIterable = {
   next() {
     if (this.current <= this.to) {
       return { done: false, value: this.current++ };
-    } else {
-      return { done: true };
-    }
+    } 
+
+    return {done: true};
   }
 };
+
+for (let elem of myIterable) {
+  console.log(elem)
+}
